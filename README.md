@@ -20,6 +20,17 @@ or just rode the currency's decline.
 - Headline metrics: USD return, gold-denominated return, gold's own return, ounces-per-share now
 - One plain-English sentence with the verdict
 
+## Yardsticks
+
+- **Commodities:** gold, silver, crude oil, copper, wheat, corn, coffee, and live cattle from Yahoo Finance
+- **Real world:** eggs, bacon, regular gasoline, ground beef, and the median US home price from FRED
+- **Indexes:** Bitcoin and the S&P 500 from Yahoo Finance, plus CPI from FRED
+- **Fun:** the US Big Mac price from The Economist's Big Mac Index; approximate and hand-maintained
+
+## What if?
+
+See what $10,000 invested in SPY, your selected yardstick, or cash under the mattress would be worth today, then compare every yardstick on one leaderboard.
+
 ## Quick start
 
 ```bash
