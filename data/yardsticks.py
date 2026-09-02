@@ -24,7 +24,12 @@ YARDSTICKS: dict[str, dict] = {
     "gold": {
         "key": "gold", "display_name": "Gold", "unit_singular": "troy ounce",
         "unit_plural": "troy ounces", "source": "yahoo", "source_id": "GC=F",
-        "category": "commodity",
+        "category": "commodity", "emoji": "🪙", "native_frequency": "Daily",
+        "notes": "COMEX front-month futures; GLD fallback is an approximate ounce proxy.",
+        "fallback_source_id": "GLD", "fallback_quote_scale": 10.0,
+        "pile_roasts": [
+            "That pile becomes {n} {b_unit} in {year}. Fort Knox remains calm.",
+        ],
         "roasts": _roasts(
             "{ticker} gained {pct} in gold terms. The alchemists remain unemployed.",
             "Your {ticker} position now buys {units} troy ounces. Fort Knox has not called.",
@@ -35,7 +40,11 @@ YARDSTICKS: dict[str, dict] = {
     "silver": {
         "key": "silver", "display_name": "Silver", "unit_singular": "troy ounce",
         "unit_plural": "troy ounces", "source": "yahoo", "source_id": "SI=F",
-        "category": "commodity",
+        "category": "commodity", "emoji": "🥈", "native_frequency": "Daily",
+        "notes": "COMEX silver futures, quoted in USD per troy ounce.",
+        "pile_roasts": [
+            "{qty} {a_unit} buys {n} {b_unit}. Silver takes second place gracefully.",
+        ],
         "roasts": _roasts(
             "{ticker} gained {pct} in silver. Second place has excellent liquidity.",
             "You can claim {units} troy ounces of silver. The werewolves have been notified.",
@@ -46,7 +55,11 @@ YARDSTICKS: dict[str, dict] = {
     "crude_oil": {
         "key": "crude_oil", "display_name": "Crude oil", "unit_singular": "barrel",
         "unit_plural": "barrels", "source": "yahoo", "source_id": "CL=F",
-        "category": "commodity",
+        "category": "commodity", "emoji": "🛢️", "native_frequency": "Daily",
+        "notes": "WTI crude-oil futures, quoted in USD per barrel.",
+        "pile_roasts": [
+            "In {year}, that is {n} {b_unit}. Storage and emissions are separate problems.",
+        ],
         "roasts": _roasts(
             "{ticker} is up {pct} in oil terms. Your portfolio is running smoothly, emissions pending.",
             "Your shares buy {units} barrels of crude. Storage is very much your problem.",
@@ -57,7 +70,11 @@ YARDSTICKS: dict[str, dict] = {
     "copper": {
         "key": "copper", "display_name": "Copper", "unit_singular": "pound",
         "unit_plural": "pounds", "source": "yahoo", "source_id": "HG=F",
-        "category": "commodity",
+        "category": "commodity", "emoji": "🟠", "native_frequency": "Daily",
+        "notes": "COMEX copper futures, quoted in USD per pound.",
+        "pile_roasts": [
+            "The {year} exchange yields {n} {b_unit}. Please leave the wiring installed.",
+        ],
         "roasts": _roasts(
             "{ticker} gained {pct} in copper. Electrifying, by spreadsheet standards.",
             "Your position buys {units} pounds of copper. Please leave the wiring in the walls.",
@@ -68,7 +85,12 @@ YARDSTICKS: dict[str, dict] = {
     "wheat": {
         "key": "wheat", "display_name": "Wheat", "unit_singular": "bushel",
         "unit_plural": "bushels", "source": "yahoo", "source_id": "ZW=F",
-        "category": "commodity", "quote_scale": 0.01,
+        "category": "commodity", "emoji": "🌾", "native_frequency": "Daily",
+        "notes": "CBOT wheat futures; cents-per-bushel quotes are converted to USD.",
+        "quote_scale": 0.01,
+        "pile_roasts": [
+            "{qty} {a_unit} becomes {n} {b_unit} in {year}. The chaff was removed.",
+        ],
         "roasts": _roasts(
             "{ticker} gained {pct} in wheat. The portfolio has risen, no yeast required.",
             "Your shares buy {units} bushels. This is how diversification becomes sourdough.",
@@ -79,7 +101,12 @@ YARDSTICKS: dict[str, dict] = {
     "corn": {
         "key": "corn", "display_name": "Corn", "unit_singular": "bushel",
         "unit_plural": "bushels", "source": "yahoo", "source_id": "ZC=F",
-        "category": "commodity", "quote_scale": 0.01,
+        "category": "commodity", "emoji": "🌽", "native_frequency": "Daily",
+        "notes": "CBOT corn futures; cents-per-bushel quotes are converted to USD.",
+        "quote_scale": 0.01,
+        "pile_roasts": [
+            "That buys {n} {b_unit} in {year}. A-maize-ing remains a compliance violation.",
+        ],
         "roasts": _roasts(
             "{ticker} gained {pct} in corn. A-maize-ing was rejected by compliance.",
             "Your position buys {units} bushels of corn. The cob allocation is fully funded.",
@@ -90,7 +117,12 @@ YARDSTICKS: dict[str, dict] = {
     "coffee": {
         "key": "coffee", "display_name": "Coffee", "unit_singular": "pound",
         "unit_plural": "pounds", "source": "yahoo", "source_id": "KC=F",
-        "category": "commodity", "quote_scale": 0.01,
+        "category": "commodity", "emoji": "☕", "native_frequency": "Daily",
+        "notes": "Coffee futures; cents-per-pound quotes are converted to USD.",
+        "quote_scale": 0.01,
+        "pile_roasts": [
+            "The pile converts to {n} {b_unit}. Sleep was not included in the model.",
+        ],
         "roasts": _roasts(
             "{ticker} gained {pct} in coffee. The returns are fully caffeinated.",
             "Your shares buy {units} pounds of coffee. Sleep is now an opportunity cost.",
@@ -101,7 +133,12 @@ YARDSTICKS: dict[str, dict] = {
     "live_cattle": {
         "key": "live_cattle", "display_name": "Live cattle", "unit_singular": "pound",
         "unit_plural": "pounds", "source": "yahoo", "source_id": "LE=F",
-        "category": "commodity", "quote_scale": 0.01,
+        "category": "commodity", "emoji": "🐄", "native_frequency": "Daily",
+        "notes": "Live-cattle futures; cents-per-pound quotes are converted to USD.",
+        "quote_scale": 0.01,
+        "pile_roasts": [
+            "In {year}, {qty} {a_unit} buys {n} {b_unit}. Delivery is discouraged.",
+        ],
         "roasts": _roasts(
             "{ticker} gained {pct} in cattle terms. The herd approves this allocation.",
             "Your shares buy {units} pounds of live cattle. Delivery is discouraged.",
@@ -112,7 +149,11 @@ YARDSTICKS: dict[str, dict] = {
     "bitcoin": {
         "key": "bitcoin", "display_name": "Bitcoin", "unit_singular": "bitcoin",
         "unit_plural": "bitcoin", "source": "yahoo", "source_id": "BTC-USD",
-        "category": "index",
+        "category": "index", "emoji": "₿", "native_frequency": "Daily",
+        "notes": "Yahoo Finance BTC-USD adjusted close; trades seven days a week.",
+        "pile_roasts": [
+            "The conversion produces {n} {b_unit}. The decimal places are doing the work.",
+        ],
         "roasts": _roasts(
             "Measured in Bitcoin, {ticker} did {pct}. Everything does {pct} measured in Bitcoin.",
             "Your shares buy {units} bitcoin. The decimal places are doing most of the work.",
@@ -123,7 +164,11 @@ YARDSTICKS: dict[str, dict] = {
     "sp500": {
         "key": "sp500", "display_name": "S&P 500", "unit_singular": "index unit",
         "unit_plural": "index units", "source": "yahoo", "source_id": "^GSPC",
-        "category": "index",
+        "category": "index", "emoji": "📈", "native_frequency": "Daily",
+        "notes": "S&P 500 index level from Yahoo Finance.",
+        "pile_roasts": [
+            "{qty} {a_unit} bought {n} {b_unit} in {year}. The benchmark accepts your tribute.",
+        ],
         "roasts": _roasts(
             "You beat the index by {pct}. Congratulations, you are a hedge fund.",
             "{ticker} gained {pct} against the S&P 500. The benchmark has requested a recount.",
@@ -134,7 +179,11 @@ YARDSTICKS: dict[str, dict] = {
     "eggs": {
         "key": "eggs", "display_name": "Dozen eggs", "unit_singular": "dozen eggs",
         "unit_plural": "dozen eggs", "source": "fred", "source_id": "APU0000708111",
-        "category": "real_world",
+        "category": "real_world", "emoji": "🥚", "native_frequency": "Monthly",
+        "notes": "US city-average retail price per dozen from FRED.",
+        "pile_roasts": [
+            "That is {n} {b_unit} in {year}. The chickens have reviewed the arithmetic.",
+        ],
         "roasts": _roasts(
             "Your {ticker} shares buy {delta} more dozen eggs than {years} years ago. The chickens acknowledge defeat.",
             "{ticker} gained {pct} in egg terms. Your nest egg is now more literal.",
@@ -145,7 +194,11 @@ YARDSTICKS: dict[str, dict] = {
     "bacon": {
         "key": "bacon", "display_name": "Pound of bacon", "unit_singular": "pound of bacon",
         "unit_plural": "pounds of bacon", "source": "fred", "source_id": "APU0000704111",
-        "category": "real_world",
+        "category": "real_world", "emoji": "🥓", "native_frequency": "Monthly",
+        "notes": "US city-average retail price per pound from FRED.",
+        "pile_roasts": [
+            "The pile buys {n} {b_unit}. Please consult a cardiologist before taking delivery.",
+        ],
         "roasts": _roasts(
             "{ticker} is up {pct} in bacon terms. That's {units} lbs of bacon. Please consult a cardiologist.",
             "Your shares buy {units} pounds of bacon. The balanced portfolio is served with toast.",
@@ -156,7 +209,11 @@ YARDSTICKS: dict[str, dict] = {
     "gas": {
         "key": "gas", "display_name": "Regular gasoline", "unit_singular": "gallon",
         "unit_plural": "gallons", "source": "fred", "source_id": "GASREGW",
-        "category": "real_world",
+        "category": "real_world", "emoji": "⛽", "native_frequency": "Weekly",
+        "notes": "US regular gasoline price per gallon from FRED.",
+        "pile_roasts": [
+            "In {year}, that buys {n} {b_unit}. Road-trip governance is out of scope.",
+        ],
         "roasts": _roasts(
             "{ticker} gained {pct} in gasoline. The portfolio has mileage left.",
             "Your shares buy {units} gallons. Road-trip governance is outside scope.",
@@ -167,7 +224,11 @@ YARDSTICKS: dict[str, dict] = {
     "ground_beef": {
         "key": "ground_beef", "display_name": "Pound of ground beef", "unit_singular": "pound of ground beef",
         "unit_plural": "pounds of ground beef", "source": "fred", "source_id": "APU0000703112",
-        "category": "real_world",
+        "category": "real_world", "emoji": "🥩", "native_frequency": "Monthly",
+        "notes": "US city-average retail price per pound from FRED.",
+        "pile_roasts": [
+            "{qty} {a_unit} becomes {n} {b_unit}. Buns remain a separate asset class.",
+        ],
         "roasts": _roasts(
             "{ticker} gained {pct} in ground-beef terms. The returns are well done.",
             "Your position buys {units} pounds of ground beef. Buns remain a separate asset class.",
@@ -178,7 +239,11 @@ YARDSTICKS: dict[str, dict] = {
     "median_home": {
         "key": "median_home", "display_name": "Median US home", "unit_singular": "median home",
         "unit_plural": "median homes", "source": "fred", "source_id": "MSPUS",
-        "category": "real_world",
+        "category": "real_world", "emoji": "🏠", "native_frequency": "Quarterly",
+        "notes": "Median US home sale price from FRED; one unit is a full median home.",
+        "pile_roasts": [
+            "That is {n} {b_unit} in {year}. Fractional bathrooms remain theoretical.",
+        ],
         "roasts": _roasts(
             "You could have bought {units} median American homes. Or {units:.2f}, which is a bathroom.",
             "{ticker} gained {pct} in housing terms. The down payment has a down payment.",
@@ -189,7 +254,11 @@ YARDSTICKS: dict[str, dict] = {
     "cpi": {
         "key": "cpi", "display_name": "US CPI", "unit_singular": "dollar of purchasing power as of the start date",
         "unit_plural": "dollars of purchasing power as of the start date", "source": "fred", "source_id": "CPIAUCSL",
-        "category": "index",
+        "category": "index", "emoji": "💵", "native_frequency": "Monthly",
+        "notes": "CPI is rebased so one unit is a dollar of start-date purchasing power.",
+        "pile_roasts": [
+            "The boring answer is {n} {b_unit}. Inflation filed the paperwork.",
+        ],
         "roasts": _roasts(
             "The boring truth: after inflation, {ticker} returned {pct}.",
             "{ticker} gained {pct} in real terms. The spreadsheet permits one quiet nod.",
@@ -200,7 +269,11 @@ YARDSTICKS: dict[str, dict] = {
     "big_mac": {
         "key": "big_mac", "display_name": "Big Mac", "unit_singular": "Big Mac",
         "unit_plural": "Big Macs", "source": "static", "source_id": "economist-big-mac-us",
-        "category": "fun",
+        "category": "fun", "emoji": "🍔", "native_frequency": "~Semiannual",
+        "notes": "Approximate US Big Mac price, hand-maintained from The Economist index.",
+        "pile_roasts": [
+            "{qty} {a_unit} becomes {n} {b_unit} in {year}. Fries remain outside the model.",
+        ],
         "roasts": _roasts(
             "{ticker} gained {pct} in Big Macs. The special sauce compounds annually.",
             "Your shares buy {units} Big Macs. Fries were not included in the model.",
@@ -289,7 +362,13 @@ def load_yahoo_series(symbol: str, start: date, end: date) -> pd.Series:
 
 
 def _load_yahoo(entry: dict, start: date, end: date) -> pd.Series:
-    return load_yahoo_series(entry["source_id"], start, end) * entry.get("quote_scale", 1.0)
+    try:
+        return load_yahoo_series(entry["source_id"], start, end) * entry.get("quote_scale", 1.0)
+    except (requests.RequestException, ValueError):
+        fallback = entry.get("fallback_source_id")
+        if not fallback:
+            raise
+        return load_yahoo_series(fallback, start, end) * entry.get("fallback_quote_scale", 1.0)
 
 
 def _load_fred(entry: dict, start: date, end: date) -> pd.Series:
@@ -337,3 +416,30 @@ def load_yardstick(key: str, start: date, end: date) -> pd.Series:
         daily = daily / daily.iloc[0]
     daily.name = key
     return daily
+
+
+def methodology_frame() -> pd.DataFrame:
+    """Build the source-methodology table directly from the registry."""
+    category_names = {
+        "commodity": "Commodity",
+        "real_world": "Real world",
+        "index": "Index",
+        "fun": "Fun",
+    }
+    rows = []
+    for entry in YARDSTICKS.values():
+        source_name = {
+            "yahoo": "Yahoo Finance",
+            "fred": "FRED",
+            "static": "The Economist Big Mac Index",
+        }[entry["source"]]
+        rows.append({
+            "Yardstick": f"{entry['emoji']} {entry['display_name']}",
+            "Category": category_names[entry["category"]],
+            "Unit": entry["unit_singular"],
+            "Source": source_name,
+            "Series/ticker": entry["source_id"],
+            "Native frequency": entry["native_frequency"],
+            "Notes": entry["notes"],
+        })
+    return pd.DataFrame(rows)
