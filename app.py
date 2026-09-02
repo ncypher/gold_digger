@@ -64,7 +64,8 @@ def unit_count(value: float, entry: dict) -> str:
 
 
 def roast_line(entry: dict, ticker: str, yardstick_return: float,
-               unit_change: float, years: float, roast_mode: bool) -> str:
+               current_units: float, unit_delta: float,
+               years: float, roast_mode: bool) -> str:
     if not roast_mode:
         return (
             f"Measured in {entry['unit_singular']}, {ticker} returned "
@@ -76,7 +77,8 @@ def roast_line(entry: dict, ticker: str, yardstick_return: float,
     return template.format(
         ticker=ticker,
         pct=f"{abs(yardstick_return):.1%}",
-        units=DisplayNumber(abs(unit_change)),
+        units=DisplayNumber(current_units),
+        delta=DisplayNumber(abs(unit_delta)),
         unit_noun=entry["unit_singular"],
         years=f"{years:.1f}",
     )
@@ -209,7 +211,7 @@ with chart_tab:
     st.markdown(
         roast_line(
             yardstick_entry, ticker, ret_yardstick,
-            current_units - first_units, years, roast_mode,
+            current_units, current_units - first_units, years, roast_mode,
         )
     )
 

@@ -136,9 +136,9 @@ YARDSTICKS: dict[str, dict] = {
         "unit_plural": "dozen eggs", "source": "fred", "source_id": "APU0000708111",
         "category": "real_world",
         "roasts": _roasts(
-            "Your {ticker} shares buy {units} more dozen eggs than {years} years ago. The chickens acknowledge defeat.",
+            "Your {ticker} shares buy {delta} more dozen eggs than {years} years ago. The chickens acknowledge defeat.",
             "{ticker} gained {pct} in egg terms. Your nest egg is now more literal.",
-            "Your {ticker} shares buy {units} fewer dozen eggs than {years} years ago. The chickens won.",
+            "Your {ticker} shares buy {delta} fewer dozen eggs than {years} years ago. The chickens won.",
             "{ticker} lost {pct} to eggs. The portfolio was briefly over-easy.",
         ),
     },
@@ -239,7 +239,7 @@ def _daily(series: pd.Series, start: date, end: date) -> pd.Series:
     series = series.copy()
     series.index = pd.to_datetime(series.index).tz_localize(None)
     series = series[~series.index.duplicated(keep="last")].sort_index()
-    daily_index = pd.date_range(start=pd.Timestamp(start), end=pd.Timestamp(end), freq="B")
+    daily_index = pd.date_range(start=pd.Timestamp(start), end=pd.Timestamp(end), freq="D")
     expanded = series.reindex(series.index.union(daily_index)).sort_index().ffill()
     return expanded.reindex(daily_index).dropna().astype(float)
 
